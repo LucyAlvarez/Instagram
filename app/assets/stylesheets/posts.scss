@@ -1,0 +1,31 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+div.thumbnail{
+  background-color: #3e4d52;
+}
+
+.white img {
+  border: 2px solid grey;
+  margin: 0;
+  padding: 0;
+  border-radius: 800px;
+  overflow: hidden;
+}
+
+nav.navbar ul.nav li {
+  font-style:italic;
+  font-weight:bold;
+
+  font-color: hotpink;
+  font-family:'Helvetica','Verdana','Monaco',sans-serif;
+}
+
+
+/* cambiar el color de fondo a la barra */
+nav.navbar.navbar-inverse.navbar-fixed-top{
+  background-color: #711943;
+}
+

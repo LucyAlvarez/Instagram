@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InstagramApp</title>
+    <link rel="shortcut icon" href="https://is3-ssl.mzstatic.com/image/thumb/Purple128/v4/8e/e6/39/8ee6396c-c550-47d2-413f-d8f7deb987f2/source/1200x630bb.jpg">
+    <%= csrf_meta_tags %>
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  </head>
+
+  <body bgcolor="#696969" marginwidth=0 marginheight=0
+        topmargin=0 leftmargin=0 rightmargin=0 background="lolo.jpg"
+        style="background-repeat: no-repeat; background-attachment: fixed; background-color: #2E2F30">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%= link_to "Instagram", root_url, class: "navbar-brand" %>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <%= link_to "Nuevo Post", new_post_path %>
+                    </li>
+                </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <%- if current_user %>
+                    <li>
+                      <%= link_to "Salir", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </li>
+                    <% else %>
+                    <li><%= link_to "Iniciar Sesion", new_user_session_path %></li>
+                    <li><%= link_to "Registrarse", new_user_registration_path %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+              <% flash.each do |a, b| %>
+              <div class="alert alert-success"><%= b %></div>
+              <% end %>
+              <%= yield %>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+    <!-- /.container -->
+
+<style>body{padding-top:70px; color: #d33682}</style>
+
+  </body>
+</html>
